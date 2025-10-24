@@ -67,6 +67,12 @@ The terminal output will look similar to the example below:
 Once connected, the client maintains a live connection to the server and waits for download requests.
 
 ### 4️⃣ Trigger File Download (from Server)
+One the terminal can see how many client is connected to the server and we can choose which client we want to download the file using API.
+
+After the request, the client sends its file, and the server stores it under the upload/ folder. Can see the output detail on image below of the process file is uploaded.
 
 <img width="1411" height="268" alt="image" src="https://github.com/user-attachments/assets/490155e0-acbe-4166-9cc6-28e70d77c94e" />
 
+##🧑‍💻 Author
+
+Developed by Muhammad Nizmuddin
