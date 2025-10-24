@@ -2,8 +2,9 @@
 This project demonstrates a cloud-hosted server and multiple on-premise clients (agents) communicating securely through HTTP. The server can trigger file downloads from any connected client on demand, even if clients are behind NAT or not publicly accessible.
 
 ## Project Structure
-Cloud-On_Premise-Agent-File-Transfer/ \n
-│ \n
+```
+Cloud-On_Premise-Agent-File-Transfer/
+│
 ├── server/
 │   ├── server.py
 │   ├── requirements.txt
@@ -13,7 +14,7 @@ Cloud-On_Premise-Agent-File-Transfer/ \n
     ├── agent.py
     ├── file_to_download.txt   # The example file each client holds
     └── requirements.txt
-
+```
 
 ## 🏗️ Architecture Overview
 
