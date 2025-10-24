@@ -10,9 +10,9 @@ This project demonstrates a cloud-hosted server and multiple on-premise clients 
 
 2. **Server (Cloud-hosted)**  
    - Accepts client connections.
-   - Initiates file download through API or CLI.
+   - Initiates file download through API.
    - Saves received files locally.
-   - 
+     
 ## 🗂 Project Structure
 ```
 Cloud-On_Premise-Agent-File-Transfer/
