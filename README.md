@@ -64,4 +64,8 @@ The terminal output will look similar to the example below:
 
 <img width="611" height="178" alt="image" src="https://github.com/user-attachments/assets/c0478603-1bc6-4b84-ac14-006088bb48df" />
 
+Once connected, the client maintains a live connection to the server and waits for download requests.
+
+### 4️⃣ Trigger File Download (from Server)
+
 
