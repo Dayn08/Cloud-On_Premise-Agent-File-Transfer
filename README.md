@@ -52,13 +52,16 @@ cd client_on-premise/
 python -m pip install -r requirements.txt
 ```
 Modify agent.py to put the url link of cloud server
+
 <img width="426" height="157" alt="image" src="https://github.com/user-attachments/assets/bfce6afa-effc-4ede-8132-28080dda5e85" />
+
 Change <server_url> to target cloud server (Using port 5050 on server, can modify the port in script server.y)
 
 ```
 python agent.py
 ```
 The terminal output will look similar to the example below:
+
 <img width="611" height="178" alt="image" src="https://github.com/user-attachments/assets/c0478603-1bc6-4b84-ac14-006088bb48df" />
 
 
