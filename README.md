@@ -68,4 +68,5 @@ Once connected, the client maintains a live connection to the server and waits f
 
 ### 4️⃣ Trigger File Download (from Server)
 
+<img width="1411" height="268" alt="image" src="https://github.com/user-attachments/assets/490155e0-acbe-4166-9cc6-28e70d77c94e" />
 
