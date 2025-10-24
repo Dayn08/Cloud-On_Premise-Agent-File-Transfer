@@ -3,7 +3,7 @@ import time
 import os
 import threading
 
-SERVER_URL = "http://192.168.100.194:5050"  
+SERVER_URL = "http://<server_url>:5050"  
 FILE_PATH = "file_to_download.txt"
 stop_flag = False 
 
