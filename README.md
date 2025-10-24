@@ -27,6 +27,13 @@ Cloud-On_Premise-Agent-File-Transfer/ \n
    - Initiates file download through API or CLI.
    - Saves received files locally.
 
+## 🚀 How to Run
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/<your-username>/cloud-file-transfer.git
+cd cloud-file-transfer
+```
 <img width="855" height="171" alt="image" src="https://github.com/user-attachments/assets/2718cdab-ac48-45cd-b836-0748b96f1ac6" />
 
 
