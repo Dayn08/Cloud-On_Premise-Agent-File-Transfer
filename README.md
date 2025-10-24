@@ -13,7 +13,7 @@ This project demonstrates a cloud-hosted server and multiple on-premise clients 
    - Initiates file download through API or CLI.
    - Saves received files locally.
    - 
-## Project Structure
+## 🗂 Project Structure
 ```
 Cloud-On_Premise-Agent-File-Transfer/
 │
