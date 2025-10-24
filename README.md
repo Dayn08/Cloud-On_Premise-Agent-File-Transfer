@@ -35,6 +35,15 @@ Cloud-On_Premise-Agent-File-Transfer/
 git clone https://github.com/Dayn08/Cloud-On_Premise-Agent-File-Transfer.git
 cd Cloud-On_Premise-Agent-File-Transfer
 ```
+### 2️⃣ Setup the Server (server/ in cloud-hosted server)
+```
+cd server/
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python server.py
+```
+When run the code, the terminal output will look similar to the example below:
 <img width="855" height="171" alt="image" src="https://github.com/user-attachments/assets/2718cdab-ac48-45cd-b836-0748b96f1ac6" />
 
 
