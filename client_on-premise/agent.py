@@ -3,8 +3,8 @@ import time
 import os
 import threading
 
-SERVER_URL = "http://<server_ip>:5050"  
-FILE_PATH = "file.txt"
+SERVER_URL = "http://192.168.100.194:5050"  
+FILE_PATH = "file_to_download.txt"
 stop_flag = False 
 
 def get_public_ip():
@@ -36,7 +36,7 @@ def upload_file():
     try:
         with open(FILE_PATH, 'rb') as f:
             files = {'file': f}
-            response = requests.post(f"{SERVER_URL}/upload", files=files)
+            response = requests.post(f"{SERVER_URL}/upload", files=files, data={"agent_name": agent_name})
             print("[+] File uploaded, response:", response.status_code)
     except Exception as e:
         print("Upload error:", e)
