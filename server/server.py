@@ -1,12 +1,12 @@
 import threading
 from flask import Flask, request
 from datetime import datetime, timedelta
-import os, time
+import os, time, glob
 import logging
 
 # Redirect Flask (werkzeug) logs to a file
 log = logging.getLogger('werkzeug')
-log.setLevel(logging.INFO) 
+log.setLevel(logging.INFO)  # You can use ERROR to log only errors
 file_handler = logging.FileHandler('./flask_temp.log')
 log.addHandler(file_handler)
 
@@ -21,7 +21,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 def ping():
     agent_id = request.remote_addr
     file_exists = request.json.get("file_exists", False)
-    agent_name = request.json.get("agent_name", agent_id) 
+    agent_name = request.json.get("agent_name", agent_id)  # fallback to IP
 
     if agent_id not in agents:
         agents[agent_id] = {
@@ -47,17 +47,21 @@ def ping_status():
 @app.route('/upload', methods=['POST'])
 def upload():
     agent_id = request.remote_addr
+    agent_name = request.form.get("agent_name", agent_id)
     if 'file' in request.files:
-        filename = f"{agent_id}_file.txt"
+        date_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{agent_name}_{date_str}.txt"
         full_path = os.path.join(UPLOAD_FOLDER, filename)
-        #request.files['file'].save(full_path)
-        #print(f"[+] Received file from {agent_id}, saved to {full_path}")
+        request.files['file'].save(full_path)
+
+        print(f"[+] Received file from {agent_name} ({agent_id}), saved to {full_path}")
+
         # Reset upload request
         if agent_id in agents:
             agents[agent_id]["upload_requested"] = False
+
         return {"status": "uploaded"}, 200
     return {"error": "No file"}, 400
-
 
 # Background thread to run Flask server
 def run_server():
@@ -75,7 +79,7 @@ def cli_loop():
         }
 
         for i, (aid, info) in enumerate(active_agents.items(), start=1):
-            print(f"{i}. {info['agent_name']}@({aid}) - file.txt exists: {info['file_exists']}")
+            print(f"{i}. {info['agent_name']}@({aid}) - file_to_download.txt exists: {info['file_exists']}")
 
         print("\nOptions:")
         print("  0 - Refresh")
@@ -86,23 +90,36 @@ def cli_loop():
         if choice.lower() == 'q':
             break
         elif choice == '0':
-            continue  # Refresh
+            continue  # Just refresh
         else:
             try:
                 index = int(choice) - 1
                 agent_ip = list(active_agents.keys())[index]
                 agents[agent_ip]["upload_requested"] = True
                 print(f"[!] Upload requested from {agent_ip}")
-                # Wait briefly to allow agent to respond and upload
-                time.sleep(3)
-                # Check if file was received
-                filename = f"{agent_ip}_file.txt"
-                filepath = os.path.join(UPLOAD_FOLDER, filename)
-                if os.path.exists(filepath):
-                   print(f"[+] Received file from {agent_ip}, saved to {filepath}")
-                else:
-                    print("[-] File not received yet.")
-                input("Press Enter to refresh...")
+
+                agent_name = agents[agent_ip]["agent_name"]
+                pattern = os.path.join(UPLOAD_FOLDER, f"{agent_name}_*.txt")
+
+                print("[*] Waiting for agent to finish upload...")
+
+                timeout = 90
+                start_time = time.time()
+                uploaded = False
+
+                while time.time() - start_time < timeout:
+                    matching_files = glob.glob(pattern)
+                    if matching_files:
+                        latest_file = max(matching_files, key=os.path.getctime)
+                        uploaded = True
+                        break
+                    time.sleep(1)
+
+                if not uploaded:
+                    print("[-] Still waiting... file not uploaded yet.")
+
+                input("Press Enter after File uploaded successfull...Taking a moment depends on the file size\n")
+
             except (ValueError, IndexError):
                 print("Invalid choice.")
                 input("Press Enter to continue...")
