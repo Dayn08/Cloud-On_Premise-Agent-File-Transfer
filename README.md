@@ -73,6 +73,5 @@ After the request, the client sends its file, and the server stores it under the
 
 <img width="1411" height="268" alt="image" src="https://github.com/user-attachments/assets/490155e0-acbe-4166-9cc6-28e70d77c94e" />
 
-##🧑‍💻 Author
-
+## 🧑‍💻 Author
 Developed by Muhammad Nizmuddin
