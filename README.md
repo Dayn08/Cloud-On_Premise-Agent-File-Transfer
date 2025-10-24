@@ -55,7 +55,7 @@ Modify agent.py to put the url link of cloud server
 
 <img width="426" height="157" alt="image" src="https://github.com/user-attachments/assets/bfce6afa-effc-4ede-8132-28080dda5e85" />
 
-Change <server_url> to target cloud server (Using port 5050 on server, can modify the port in script server.y)
+Change <server_url> to target cloud server (Using port 5050 on server, can modify the port in script /server/server.py)
 
 ```
 python agent.py
