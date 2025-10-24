@@ -1,6 +1,7 @@
 # Cloud to On-Premise Agent File Transfer
 This project demonstrates a cloud-hosted server and multiple on-premise clients (agents) communicating securely through HTTP. The server can trigger file downloads from any connected client on demand, even if clients are behind NAT or not publicly accessible.
 
+
 ## 🏗️ Architecture Overview
 
 1. **Client (On-premise)**  
@@ -12,6 +13,7 @@ This project demonstrates a cloud-hosted server and multiple on-premise clients 
    - Accepts client connections.
    - Initiates file download through an API call.
    - Saves received files locally inside the `upload/` directory.
+
      
 ## 🗂 Project Structure
 ```
@@ -28,6 +30,7 @@ Cloud-On_Premise-Agent-File-Transfer/
     └── requirements.txt
 ```
 
+
 ## 🚀 How to Run
 
 ### 1️⃣ Clone the Repository
@@ -35,6 +38,8 @@ Cloud-On_Premise-Agent-File-Transfer/
 git clone https://github.com/Dayn08/Cloud-On_Premise-Agent-File-Transfer.git
 cd Cloud-On_Premise-Agent-File-Transfer
 ```
+
+
 ### 2️⃣ Setup the Server (server/ in cloud-hosted server on Linux OS)
 Run this on cloud-hosted
 ```
@@ -46,6 +51,7 @@ python server.py
 ```
 When run the code, the terminal output will look similar to the example below:
 <img width="855" height="171" alt="image" src="https://github.com/user-attachments/assets/2718cdab-ac48-45cd-b836-0748b96f1ac6" />
+
 
 ### 3️⃣ Setup the Client (client_on-premise/ in client computer Linux/Windows)
 ```
@@ -71,6 +77,7 @@ Expected output example:
 
 Once connected, the client maintains a live connection to the server and waits for download requests.
 
+
 ### 4️⃣ Trigger File Download (from Server)
 The server terminal shows all connected clients.
 You can choose a specific client to download the file via API.
@@ -84,6 +91,7 @@ The server saves the file inside the upload/ folder.
 Example of the process in action:
 
 <img width="1411" height="268" alt="image" src="https://github.com/user-attachments/assets/490155e0-acbe-4166-9cc6-28e70d77c94e" />
+
 
 ## 🧑‍💻 Author
 Developed by Muhammad Nizmuddin
