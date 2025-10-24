@@ -5,7 +5,6 @@ import threading
 
 SERVER_URL = "http://<server_ip>:5050"  
 FILE_PATH = "file.txt"
-
 stop_flag = False 
 
 def get_public_ip():
