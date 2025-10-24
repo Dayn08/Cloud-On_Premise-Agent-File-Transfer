@@ -59,9 +59,12 @@ Open and modify agent.py and update the server URL to point to your cloud server
 Replace <server_url> with your actual server IP or domain.
 The default port is 5050, but you can modify it in server/server.py if needed.
 
+Now, start the client:
 ```
 python agent.py
 ```
+The terminal will prompt to enter the Agent Name (On-premise's Name).
+
 Expected output example:
 
 <img width="611" height="178" alt="image" src="https://github.com/user-attachments/assets/c0478603-1bc6-4b84-ac14-006088bb48df" />
