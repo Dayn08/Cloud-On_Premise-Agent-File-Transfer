@@ -94,6 +94,6 @@ Example of the process in action:
 
 
 ## 🧑‍💻 Author
-Developed by Muhammad Nizmuddin
+Developed by Muhammad Nizamuddin
 
 © 2025 All rights reserved.
